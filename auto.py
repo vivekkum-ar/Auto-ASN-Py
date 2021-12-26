@@ -6,16 +6,11 @@ web.get('https://india-portal.wabco-auto.com/Login.aspx')
 
 time.sleep(2)
 
-vcode = "250042"
-vCodeBox = web.find_element_by_id('TextBox1')
-vCodeBox.send_keys(vcode)
+def autoFill(eleId,vale):
+    web.find_element_by_id(eleId).send_keys(vale)
 
-vpass = "Mapl@1234"
-vPassBox = web.find_element_by_id('TextBox2')
-vPassBox.send_keys(vpass)
 
-vselect = "Supplier"
-vSelectBox = web.find_element_by_id('DropDownList1')
-vSelectBox.send_keys(vselect)
-
+autoFill("TextBox1","250042")
+autoFill("TextBox2","Mapl@1234")
+autoFill("DropDownList1","Supplier")
 web.find_element_by_id('Button1').click()
